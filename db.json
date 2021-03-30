@@ -1,68 +1,96 @@
-[
-  {
-    "_id": "60624aaa00dd0f2bf5bf883b",
-    "imageUrl": "http://placehold.it/200x200",
-    "name": "esse",
-    "count": 19,
-    "size": {
-      "width": 200,
-      "height": 200
+{
+  "product": [
+    {
+      "id": "60624aaa00dd0f2bf5bf883b",
+      "imageUrl": "http://placehold.it/200x200",
+      "name": "product 1",
+      "count": 19,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "150g",
+      "comments": [
+        {
+          "id": "1",
+          "productId": "60624aaa00dd0f2bf5bf883b",
+          "description": "some text here",
+          "date": "14:00 21.08.2021"
+        },
+        {
+          "id": "3",
+          "productId": "60624aaa00dd0f2bf5bf883b",
+          "description": "some text here",
+          "date": "14:00 22.08.2021"
+        }
+      ]
     },
-    "weight": "150g"
-  },
-  {
-    "_id": "60624aaaca6f4854624b6609",
-    "imageUrl": "http://placehold.it/200x200",
-    "name": "esse",
-    "count": 40,
-    "size": {
-      "width": 200,
-      "height": 200
+    {
+      "id": "60624aaaca6f4854624b6609",
+      "imageUrl": "http://placehold.it/200x200",
+      "name": "product 2",
+      "count": 40,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": ""
     },
-    "weight": "200g"
-  },
-  {
-    "_id": "60624aaa20be540b90f79556",
-    "imageUrl": "http://placehold.it/200x200",
-    "name": "est",
-    "count": 10,
-    "size": {
-      "width": 200,
-      "height": 200
+    {
+      "id": "60624aaa20be540b90f79556",
+      "imageUrl": "http://placehold.it/200x200",
+      "name": "product 3",
+      "count": 10,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": ""
     },
-    "weight": "200g"
-  },
-  {
-    "_id": "60624aaaa257caff6f309cbe",
-    "imageUrl": "http://placehold.it/200x200",
-    "name": "laborum",
-    "count": 9,
-    "size": {
-      "width": 200,
-      "height": 200
+    {
+      "id": "60624aaaa257caff6f309cbe",
+      "imageUrl": "http://placehold.it/200x200",
+      "name": "product 4",
+      "count": 9,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "150g",
+      "comments": ""
     },
-    "weight": "150g"
-  },
-  {
-    "_id": "60624aaaf93c75bc2f2b4201",
-    "imageUrl": "http://placehold.it/200x200",
-    "name": "excepteur",
-    "count": 25,
-    "size": {
-      "width": 200,
-      "height": 200
+    {
+      "id": "60624aaaf93c75bc2f2b4201",
+      "imageUrl": "http://placehold.it/200x200",
+      "name": "product 5",
+      "count": 25,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "250g",
+      "comments": ""
     },
-    "weight": "250g"
-  },
-  {
-    "_id": "60624aaad37f629fe448a408",
-    "imageUrl": "http://placehold.it/200x200",
-    "name": "deserunt",
-    "count": 23,
-    "size": {
-      "width": 200,
-      "height": 200
-    },
-    "weight": "200g"
-  }
-]
+    {
+      "id": "60624aaad37f629fe448a408",
+      "imageUrl": "http://placehold.it/200x200",
+      "name": "product 6",
+      "count": 23,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": [
+        {
+          "id": "7",
+          "productId": "60624aaad37f629fe448a408",
+          "description": "some text here",
+          "date": "14:00 22.07.2021"
+        }
+      ]
+    }
+  ]
+}
