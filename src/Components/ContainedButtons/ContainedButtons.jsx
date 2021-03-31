@@ -13,14 +13,19 @@ const useStyles = makeStyles(theme => ({
 export default function ContainedButtons({
   onClickSortCount,
   onClickSortName,
+  toggleModalProduct,
 }) {
   const classes = useStyles();
 
   return (
     <>
       <div className={classes.root}>
-        <Button variant="contained" color="primary">
-          Create new
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={toggleModalProduct}
+        >
+          Create new product
         </Button>
       </div>
       <div className={classes.root}>

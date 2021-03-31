@@ -4,11 +4,13 @@ import ProductList from 'Components/ProductList/ProductList';
 import ContainedButtons from 'Components/ContainedButtons/ContainedButtons';
 import CommentsForm from 'Components/CommentsForm/CommentsForm';
 import Modal from 'Components/Modal/Modal';
+import ProductForm from 'Components/ProductForm/ProductForm';
 
 function App() {
   const [products, setProducts] = useState('');
   const [sort, setSort] = useState('');
   const [onOpenModalComment, setOnOpenModalComment] = useState(false);
+  const [onOpenModalProduct, setOnOpenModalProduct] = useState(false);
   const [idProduct, setIdProduct] = useState('');
   //*сортировка по количеству
   const onSortByCountProducts = () => {
@@ -56,12 +58,18 @@ function App() {
     setProducts(sort);
   }, [sort]);
 
-  const toggleModal = id => {
+  const toggleModalComment = id => {
     setOnOpenModalComment(!onOpenModalComment);
     setIdProduct(id);
   };
+  const toggleModalProduct = () => {
+    setOnOpenModalProduct(!onOpenModalProduct);
+  };
 
   const onSubmitForm = arg => {
+    console.log(arg);
+  };
+  const onSubmitFormProduct = arg => {
     console.log(arg);
   };
 
@@ -69,27 +77,38 @@ function App() {
     <div>
       <h1>Our products</h1>
       {onOpenModalComment && (
-        <Modal toggleModal={toggleModal}>
+        <Modal toggleModal={toggleModalComment}>
           <CommentsForm
             onSubmitForm={onSubmitForm}
             productId={idProduct}
-            toggleModal={toggleModal}
+            toggleModal={toggleModalComment}
           />
         </Modal>
       )}
-
-      <button type="button" onClick={onSortByCountProducts}>
+      {onOpenModalProduct && (
+        <Modal toggleModal={toggleModalProduct}>
+          <ProductForm
+            onSubmitForm={onSubmitFormProduct}
+            toggleModalProduct={toggleModalProduct}
+          />
+        </Modal>
+      )}
+      {/* <button type="button" onClick={onSortByCountProducts}>
         Sort
       </button>
       <button type="button" onClick={onSortByNameProducts}>
         Name
-      </button>
+      </button> */}
       <ContainedButtons
-        onClickSortCount={() => onSortByCountProducts()}
-        onClickSortName={() => onSortByNameProducts()}
+        onClickSortCount={onSortByCountProducts}
+        onClickSortName={onSortByNameProducts}
+        toggleModalProduct={toggleModalProduct}
       />
       {products && (
-        <ProductList products={products} toggleModal={toggleModal} />
+        <ProductList
+          products={products}
+          toggleModalComment={toggleModalComment}
+        />
       )}
     </div>
   );

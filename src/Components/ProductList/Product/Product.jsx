@@ -21,7 +21,7 @@ function Product({
     size: { width, height },
     comments,
   },
-  toggleModal,
+  toggleModalComment,
 }) {
   const classes = useStyles();
   return (
@@ -59,7 +59,7 @@ function Product({
           ))}
         </ul>
       )}
-      <Button variant="contained" onClick={() => toggleModal(id)}>
+      <Button variant="contained" onClick={() => toggleModalComment(id)}>
         Add comments
       </Button>
     </div>
