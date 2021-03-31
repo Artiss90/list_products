@@ -5,13 +5,16 @@ import ContainedButtons from 'Components/ContainedButtons/ContainedButtons';
 import CommentsForm from 'Components/CommentsForm/CommentsForm';
 import Modal from 'Components/Modal/Modal';
 import ProductForm from 'Components/ProductForm/ProductForm';
+import UpdateProductForm from 'Components/UpdateProductForm/UpdateProductForm';
 
 function App() {
   const [products, setProducts] = useState('');
   const [sort, setSort] = useState('');
   const [onOpenModalComment, setOnOpenModalComment] = useState(false);
   const [onOpenModalProduct, setOnOpenModalProduct] = useState(false);
+  const [onOpenModalEditProduct, setOnOpenModalEditProduct] = useState(false);
   const [idProduct, setIdProduct] = useState('');
+  const [productProp, setProductProp] = useState(products[0]);
   //*сортировка по количеству
   const onSortByCountProducts = () => {
     setSort(products.sort((a, b) => b.count - a.count));
@@ -57,8 +60,15 @@ function App() {
     setOnOpenModalComment(!onOpenModalComment);
     setIdProduct(id);
   };
+
   const toggleModalProduct = () => {
     setOnOpenModalProduct(!onOpenModalProduct);
+  };
+
+  const toggleModalEditProduct = productEdit => {
+    console.log(productEdit);
+    setProductProp(productEdit);
+    setOnOpenModalEditProduct(!onOpenModalEditProduct);
   };
 
   const onSubmitForm = arg => {
@@ -70,9 +80,30 @@ function App() {
       .catch(error => console.log(error.message));
   };
 
+  const onSubmitFormEditProduct = arg => {
+    API.getEditProduct(arg, productProp.id)
+      .then(console.log)
+      .catch(error => console.log(error.message));
+  };
+
   return (
     <div>
       <h1>Our products</h1>
+      <ContainedButtons
+        onClickSortCount={onSortByCountProducts}
+        onClickSortName={onSortByNameProducts}
+        toggleModalProduct={toggleModalProduct}
+      />
+      {products && (
+        <ProductList
+          products={products}
+          toggleModalComment={toggleModalComment}
+          toggleModalEditProduct={toggleModalEditProduct}
+        />
+      )}
+      {/*
+        //* modal views
+       */}
       {onOpenModalComment && (
         <Modal toggleModal={toggleModalComment}>
           <CommentsForm
@@ -90,16 +121,14 @@ function App() {
           />
         </Modal>
       )}
-      <ContainedButtons
-        onClickSortCount={onSortByCountProducts}
-        onClickSortName={onSortByNameProducts}
-        toggleModalProduct={toggleModalProduct}
-      />
-      {products && (
-        <ProductList
-          products={products}
-          toggleModalComment={toggleModalComment}
-        />
+      {onOpenModalEditProduct && (
+        <Modal toggleModal={toggleModalEditProduct}>
+          <UpdateProductForm
+            onSubmitForm={onSubmitFormEditProduct}
+            toggleModal={toggleModalEditProduct}
+            products={productProp}
+          />
+        </Modal>
       )}
     </div>
   );

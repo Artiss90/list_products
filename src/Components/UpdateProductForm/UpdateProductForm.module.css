@@ -1,0 +1,13 @@
+.form {
+  background-color: cornsilk;
+  width: 800px;
+  min-width: 300px;
+  padding: 8px;
+}
+.container {
+  display: block;
+}
+.input {
+  width: 100%;
+  padding-left: 10px;
+}

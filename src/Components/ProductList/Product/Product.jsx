@@ -22,11 +22,26 @@ function Product({
     comments,
   },
   toggleModalComment,
+  toggleModalEditProduct,
 }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Button variant="contained">Edit product</Button>
+      <Button
+        variant="contained"
+        onClick={() =>
+          toggleModalEditProduct({
+            id,
+            name,
+            imageUrl,
+            count,
+            weight,
+            size: { width, height },
+          })
+        }
+      >
+        Edit product
+      </Button>
       <div className={style.rowContainer}>
         <img
           src={imageUrl || 'http://placehold.it/200x200'}

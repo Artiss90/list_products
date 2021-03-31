@@ -31,6 +31,18 @@ async function addComment(comment, idProduct) {
     return console.log(error.message);
   }
 }
-const API = { getProducts, createProduct, addComment };
+async function getEditProduct(product, idProduct) {
+  try {
+    const response = await axios.patch(
+      `${urlBase}${urlProduct}/${idProduct}`,
+      product,
+    );
+    return response.data;
+  } catch (error) {
+    return console.log(error.message);
+  }
+}
+
+const API = { getProducts, createProduct, addComment, getEditProduct };
 
 export default API;

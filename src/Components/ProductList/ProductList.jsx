@@ -11,13 +11,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ProductList({ products, toggleModalComment }) {
+function ProductList({ products, toggleModalComment, toggleModalEditProduct }) {
   const classes = useStyles();
   return (
     <ul className={classes.root}>
       {products.map(prod => (
         <li key={prod.id} className={style.item}>
-          <Product product={prod} toggleModalComment={toggleModalComment} />
+          <Product
+            product={prod}
+            toggleModalComment={toggleModalComment}
+            toggleModalEditProduct={toggleModalEditProduct}
+          />
         </li>
       ))}
     </ul>

@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api-server": "json-server --port 4090 --delay 300 --watch db.json",
+    "api-server": "json-server --port 4090 --delay 300 --watch db.json --routes routes.json",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
