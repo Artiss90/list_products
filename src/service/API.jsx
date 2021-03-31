@@ -12,6 +12,25 @@ async function getProducts() {
   }
 }
 
-const API = { getProducts };
+async function createProduct(product) {
+  try {
+    const response = await axios.post(`${urlBase}${urlProduct}`, product);
+    return response.data;
+  } catch (error) {
+    return console.log(error.message);
+  }
+}
+async function addComment(comment, idProduct) {
+  try {
+    const response = await axios.patch(
+      `${urlBase}${urlProduct}/${idProduct}`,
+      comment,
+    );
+    return response.data;
+  } catch (error) {
+    return console.log(error.message);
+  }
+}
+const API = { getProducts, createProduct, addComment };
 
 export default API;

@@ -16,10 +16,14 @@ function CommentsForm({ onSubmitForm, productId, toggleModal }) {
       date.getMonth(),
     ).padStart(2, '0')}:${String(date.getFullYear()).padStart(2, '0')}`;
     onSubmitForm({
-      id: commentId,
-      productId: productId,
-      description: comment,
-      date: dateComment,
+      comments: [
+        {
+          id: commentId,
+          productId: productId,
+          description: comment,
+          date: dateComment,
+        },
+      ],
     });
     resetTextarea();
     toggleModal();

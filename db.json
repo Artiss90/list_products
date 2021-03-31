@@ -35,7 +35,14 @@
         "height": 200
       },
       "weight": "200g",
-      "comments": ""
+      "comments": [
+        {
+          "id": "893e9982-f105-4bbc-9e1d-0de725a3b78c",
+          "productId": "60624aaaca6f4854624b6609",
+          "description": "Artiss",
+          "date": "16:14  03:02:2021"
+        }
+      ]
     },
     {
       "id": "60624aaa20be540b90f79556",
@@ -47,7 +54,14 @@
         "height": 200
       },
       "weight": "200g",
-      "comments": ""
+      "comments": [
+        {
+          "id": "1646d9bb-da95-4c0f-a719-4cc87fc02a95",
+          "productId": "60624aaa20be540b90f79556",
+          "description": "Next test",
+          "date": "16:22  03:02:2021"
+        }
+      ]
     },
     {
       "id": "60624aaaa257caff6f309cbe",
@@ -91,6 +105,17 @@
           "date": "14:00 22.07.2021"
         }
       ]
+    },
+    {
+      "name": "test",
+      "imageUrl": "",
+      "count": "77",
+      "size": {
+        "width": "77",
+        "height": "99"
+      },
+      "weight": "66g",
+      "id": "CCaDlEe"
     }
   ]
 }

@@ -1,20 +1,18 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import style from './ProductForm.module.css';
 
 function ProductForm({ onSubmitForm, toggleModalProduct }) {
   const [imageUrl, setImageUrl] = useState('');
+  const [name, setName] = useState('');
   const [count, setCount] = useState('');
   const [width, setWidth] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
 
-  const productId = uuidv4();
-
   const handleSubmit = e => {
     e.preventDefault();
     onSubmitForm({
-      id: productId,
+      name: name.toString(),
       imageUrl: imageUrl.toString(),
       count: count.toString(),
       size: {
@@ -29,6 +27,9 @@ function ProductForm({ onSubmitForm, toggleModalProduct }) {
 
   const handleChangeImg = e => {
     setImageUrl(e.currentTarget.value);
+  };
+  const handleChangeName = e => {
+    setName(e.currentTarget.value);
   };
   const handleChangeCount = e => {
     setCount(e.currentTarget.value);
@@ -45,6 +46,7 @@ function ProductForm({ onSubmitForm, toggleModalProduct }) {
 
   const resetInput = () => {
     setImageUrl('');
+    setName('');
     setCount('');
     setWidth('');
     setHeight('');
@@ -62,6 +64,18 @@ function ProductForm({ onSubmitForm, toggleModalProduct }) {
           placeholder="http://placehold.it/200x200"
           value={imageUrl}
           onChange={handleChangeImg}
+          className={style.input}
+        />
+      </label>
+      <label className={style.container}>
+        name product:
+        <input
+          type="text"
+          name="name"
+          autoComplete="off"
+          placeholder="any name"
+          value={name}
+          onChange={handleChangeName}
           className={style.input}
         />
       </label>

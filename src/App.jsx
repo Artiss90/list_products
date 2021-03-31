@@ -14,31 +14,26 @@ function App() {
   const [idProduct, setIdProduct] = useState('');
   //*сортировка по количеству
   const onSortByCountProducts = () => {
-    if (products) {
-      setSort(products.sort((a, b) => b.count - a.count));
-      return;
-    }
+    setSort(products.sort((a, b) => b.count - a.count));
+    return;
   };
   //*сортировка по имени
   const onSortByNameProducts = () => {
-    if (products) {
-      setSort(
-        products.sort(function (a, b) {
-          const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-          const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-          // names must be equal
-          return 0;
-        }),
-      );
-
-      return;
-    }
+    setSort(
+      products.sort(function (a, b) {
+        const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
+      }),
+    );
+    return;
   };
 
   useEffect(() => {
@@ -67,10 +62,12 @@ function App() {
   };
 
   const onSubmitForm = arg => {
-    console.log(arg);
+    API.addComment(arg, idProduct).then(console.log).catch(console.log);
   };
   const onSubmitFormProduct = arg => {
-    console.log(arg);
+    API.createProduct(arg)
+      .then(response => setProducts([...products, response]))
+      .catch(error => console.log(error.message));
   };
 
   return (
@@ -93,12 +90,6 @@ function App() {
           />
         </Modal>
       )}
-      {/* <button type="button" onClick={onSortByCountProducts}>
-        Sort
-      </button>
-      <button type="button" onClick={onSortByNameProducts}>
-        Name
-      </button> */}
       <ContainedButtons
         onClickSortCount={onSortByCountProducts}
         onClickSortName={onSortByNameProducts}
