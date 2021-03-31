@@ -3,7 +3,7 @@
     {
       "id": "60624aaa00dd0f2bf5bf883b",
       "imageUrl": "http://placehold.it/200x200",
-      "name": "product 1",
+      "name": "some product 1",
       "count": 19,
       "size": {
         "width": 200,
@@ -28,7 +28,7 @@
     {
       "id": "60624aaaca6f4854624b6609",
       "imageUrl": "http://placehold.it/200x200",
-      "name": "product 2",
+      "name": "any product 2",
       "count": 40,
       "size": {
         "width": 200,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import style from './Product.module.css';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles(theme => ({
 
 function Product({
   product: {
+    id,
     name = 'no name',
     imageUrl = 'http://placehold.it/200x200',
     count,
@@ -19,13 +21,22 @@ function Product({
     size: { width, height },
     comments,
   },
+  toggleModal,
 }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <img src={imageUrl} alt={name} />
-      <p>name: {name}</p>
-      <p>count: {count}</p>
+      <div className={style.rowContainer}>
+        <img src={imageUrl} alt={name} width="200" />
+        <ul>
+          <li className={style.item}>
+            <p>name: {name}</p>
+          </li>
+          <li className={style.item}>
+            <p>count: {count}</p>
+          </li>
+        </ul>
+      </div>
       <ul className={classes.root}>
         <h3>size:</h3>
         {width && <li>width: {width}</li>}
@@ -36,15 +47,21 @@ function Product({
         <ul className={classes.root}>
           <h3>comments: </h3>
           {comments.map(comment => (
-            <li key={comment.id} id={comment.productId}>
+            <li
+              key={comment.id}
+              id={comment.productId}
+              className={style.rowContainer}
+            >
               <p>{comment.description}</p>
-              <p>{comment.date}</p>
+              <p className={style.littleText}>{comment.date}</p>
               <Button variant="contained">Delete comments</Button>
             </li>
           ))}
-          <Button variant="contained">Add comments</Button>
         </ul>
       )}
+      <Button variant="contained" onClick={() => toggleModal(id)}>
+        Add comments
+      </Button>
     </div>
   );
 }

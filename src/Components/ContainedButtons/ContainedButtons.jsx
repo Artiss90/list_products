@@ -10,7 +10,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ContainedButtons() {
+export default function ContainedButtons({
+  onClickSortCount,
+  onClickSortName,
+}) {
   const classes = useStyles();
 
   return (
@@ -22,8 +25,12 @@ export default function ContainedButtons() {
       </div>
       <div className={classes.root}>
         {' '}
-        <Button variant="contained">Sort by name</Button>
-        <Button variant="contained">Sorn by count</Button>
+        <Button variant="contained" onClick={onClickSortName}>
+          Sort by name
+        </Button>
+        <Button variant="contained" onClick={onClickSortCount}>
+          Sorn by count
+        </Button>
       </div>
     </>
   );

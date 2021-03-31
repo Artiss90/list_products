@@ -10,13 +10,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ProductList({ products }) {
+function ProductList({ products, toggleModal }) {
   const classes = useStyles();
   return (
     <ul className={classes.root}>
       {products.map(prod => (
         <li key={prod.id}>
-          <Product product={prod} />
+          <Product product={prod} toggleModal={toggleModal} />
         </li>
       ))}
     </ul>

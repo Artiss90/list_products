@@ -1,0 +1,11 @@
+.rowContainer {
+  display: flex;
+}
+.item {
+  margin-left: 10px;
+}
+.littleText {
+  font-size: small;
+  padding-left: 10px;
+  padding-right: 10px;
+}
